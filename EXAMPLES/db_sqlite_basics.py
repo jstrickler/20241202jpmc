@@ -14,4 +14,11 @@ with sqlite3.connect("../DATA/presidents.db") as conn:  # connect to the databas
     for term, firstname, lastname, party in s3_cursor.fetchall():
         print(f"{term:2d} {firstname:25} {lastname:20} {party}")
     print()
-
+    print('-' * 60)
+    
+    s3_cursor.execute('''
+        select termnum, firstname, lastname, party
+        from presidents
+    ''')  # execute a SQL statement
+    all_results = s3_cursor.fetchall()
+    print(all_results)

@@ -30,6 +30,6 @@ dict_cursor.row_factory = sqlite3.Row  # set the row factory to be a Row object
 dict_cursor.execute(NAME_QUERY)
 
 for row in dict_cursor.fetchall():
-    print(row['firstname'], row['lastname'])  # index row by column name
+    print(row['firstname'], row['lastname'])  # index row by column name rather than row[0], row[1], ...
 
 print('-' * 50)
