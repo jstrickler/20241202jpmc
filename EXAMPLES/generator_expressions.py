@@ -1,10 +1,14 @@
 fruits = ['watermelon', 'apple', 'mango', 'kiwi', 'apricot', 'lemon', 'guava']
 
+# (expr for var in iterable if condition)
 ufruits = (fruit.upper() for fruit in fruits)  # These are all exactly like the list comprehension example, but return generators rather than lists
 afruits = (fruit.title() for fruit in fruits if fruit.startswith('a'))
+long_fruits = (fruit for fruit in fruits if len(fruit) > 5)
 
 print("ufruits:", " ".join(ufruits))
 print("afruits:", " ".join(afruits))
+for fruit in long_fruits:
+    print(fruit)
 print()
 
 values = [2, 42, 18, 92, "boom", ['a', 'b', 'c']]

@@ -18,5 +18,6 @@ pprint(globals())
 print()
 
 g = globals()
+# color = "blue"
 g['color'] = "blue"  # create a new variable
 print("color:", color)

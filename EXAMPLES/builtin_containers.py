@@ -1,5 +1,5 @@
 greek_list = ['alpha', 'beta', 'gamma', 'eta', 'alpha', 'omega', 'zeta']
-address = ('123 Elm Street', 'Toledo', 'Ohio')
+address = '123 Elm Street', 'Toledo', 'Ohio'
 greek_dict = {'alpha': 5, 'beta': 10, 'gamma': 15}
 greek_set = {'alpha', 'beta', 'gamma', 'eta', 'zeta'}
 greek_str = 'alpha'

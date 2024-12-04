@@ -1,19 +1,21 @@
 
 class MultiIndexList(list):  # Define new class that inherits from list
 
-    def __getitem__(self, item):  # Redefine __getitem__ which implements []
-        if isinstance(item, tuple):  # Check to see if index is tuple
-            if len(item) == 0:
+    def __getitem__(self, index_list):  # Redefine __getitem__ which implements []
+        if isinstance(index_list, tuple):  # Check to see if index is tuple
+            if len(index_list) == 0:
                 raise ValueError("Tuple must be non-empty")
             else:
                 tmp_list = []
-                for index in item:
+                for index in index_list:
                     tmp_list.append(
                         super().__getitem__(index)  # Call list.__getitem__() for each index in tuple
                     )
                 return tmp_list
+        elif isinstance(index_list, str):
+            return ["help!"]
         else:
-            return super().__getitem__(item)  # Call the normal __getitem__()
+            return super().__getitem__(index_list)  # Call the normal __getitem__()
 
 
 if __name__ == '__main__':
@@ -38,3 +40,12 @@ if __name__ == '__main__':
     print()
     for fruit in m:
         print(fruit)
+    print(m[0, 5])
+    print(m[2, -4, 3, -1])
+
+    # m[5]   integer
+    # m[3:8]  slice object
+    # m[3, 4, 9]   tuple
+    # m["all"]
+    # m["first_five"]
+    print(m['wombat'])

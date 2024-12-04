@@ -13,5 +13,5 @@ def test_two(common_fixture):   # unit test that uses fixture from conftest.py
 
 
 if __name__ == '__main__':
-    pytest.main([__file__, "-s"])   # run tests (without stdout/stderr capture) when this script is run
+    pytest.main([__file__, "-s", "-v"])   # run tests (without stdout/stderr capture) when this script is run
 

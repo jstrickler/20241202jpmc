@@ -10,13 +10,15 @@ def test_cache(cache):  # cache persists values between test runs
     print("Counter after:", value)
     assert True   # Make test successful
 
+TEST_STRING = "Hello, pytesting world"
+
 def hello():
-    print("Hello, pytesting world")
+    print(TEST_STRING)
 
 def test_capsys(capsys):
     hello()  # Call function that writes text to STDOUT
     out, err = capsys.readouterr()  # Get captured output
-    print("STDOUT:", out)
+    assert out.rstrip() == TEST_STRING
 
 def bhello():
     print(b"Hello, binary pytesting world\n")
