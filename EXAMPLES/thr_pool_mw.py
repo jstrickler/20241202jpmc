@@ -11,7 +11,7 @@ with open('dictionaryapikey.txt') as api_key_in:
 
 SEARCH_TERMS = [  # terms to search for; each thread will search some of these terms
     'wombat', 'pine marten', 'python', 'pearl',
-    'sea', 'formula', 'translation', 'common',
+    'sea', 'formula', 'translation', 'common', 'account', 'money', 'thread',
     'business', 'frog', 'muntin', 'automobile',
     'green', 'connect','vial', 'battery', 'computer',
     'sing', 'park', 'ladle', 'ram', 'dog', 'scalpel',
@@ -62,7 +62,7 @@ def get_data_threaded():
     return p.map(fetch_data, SEARCH_TERMS)  # launch threads, collect results
 
 def get_data_serial():
-    return [fetch_data(w) for w in SEARCH_TERMS]
+    return [fetch_data(w) for w in SEARCH_TERMS] # NOT concurrent
 
 
 if __name__ == '__main__':

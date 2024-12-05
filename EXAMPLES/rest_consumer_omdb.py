@@ -10,7 +10,8 @@ def main():
     requests_params = {'t': 'Black Panther', "apikey": OMDB_API_KEY}
     response = requests.get(OMDB_URL, params=requests_params)
     if response.status_code == requests.codes.OK:
-        raw_data = response.json()
+        # raw_data = json.loads(response.text)
+        raw_data = response.json()  # translate raw json to Python data structure
 
         print(f"raw_data['Title']: {raw_data['Title']}")
         print(f"raw_data['Director']: {raw_data['Director']}")
@@ -21,7 +22,7 @@ def main():
         print('-' * 60)
 
         print("raw DATA:")
-        pprint(response.json())
+        pprint(response.json(), sort_dicts=False, depth=1)
     else:
         print(f"response.status_code: {response.status_code}")
 

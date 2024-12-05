@@ -4,7 +4,7 @@ import time
 
 WORD_LIST = 'apple banana mango peach papaya cherry lemon watermelon'.split()
 
-MAX_SLEEP_TIME = 3
+MAX_SLEEP_TIME = 5
 RESULT_LIST = []  # the threads will append words to this list
 RESULT_LIST_LOCK = threading.Lock()  # generic locks
 STDOUT_LOCK = threading.Lock()  # generic locks
@@ -24,6 +24,7 @@ class SimpleThread(threading.Thread):
             RESULT_LIST.append(self._word.upper())
 
 all_threads = []  # make list ("pool") of threads (but see Pool later in chapter)
+start_time = time.perf_counter()
 for random_word in WORD_LIST:  # inefficiently creating one thread per word...
     t = SimpleThread(random_word)  # create thread
     all_threads.append(t)  # add thread to "pool"
@@ -34,4 +35,7 @@ print("All threads launched...")
 for t in all_threads:
     t.join()  # wait for thread to finish
 
+end_time = time.perf_counter()
+
 print(RESULT_LIST)
+print("total time:", end_time - start_time)

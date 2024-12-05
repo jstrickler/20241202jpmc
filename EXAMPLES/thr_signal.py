@@ -18,4 +18,5 @@ def interrupt():
 if __name__ == "__main__":
     t = Thread(target=interrupt)
     t.start()  # start thread, which will set the event 10 seconds later
-    do_something()  # start function, which will detect the event in about 10 seconds
+    d = Thread(target=do_something)  # start function, which will detect the event in about 10 seconds
+    d.start()

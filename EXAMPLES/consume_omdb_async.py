@@ -15,7 +15,7 @@ async def get_ratings(movie_titles, omdb_api_key):
         for title in movie_titles:
             tasks.append(asyncio.ensure_future(get_rt_score(title, session, omdb)))
 
-        ratings = await asyncio.gather(*tasks)
+        ratings = await asyncio.gather(*tasks)  # map tasks to result
         return ratings
 
 
